@@ -1,0 +1,43 @@
+function setup() {
+  createCanvas(1080, 720);
+  background(300);
+}
+
+function draw() {
+  background(220);
+
+  fill(255, 255, 0);
+  rect(135, 285, 200, 100);
+
+  textSize(40);
+  fill(0, 0, 0);
+  text("Game 1", 160, 350);
+
+  fill(255, 255, 0);
+  rect(438.75, 285, 200, 100);
+
+  textSize(40);
+  fill(0, 0, 0);
+  text("Game 2", 463.75, 350);
+
+  fill(255, 255, 0);
+  rect(742.5, 285, 200, 100);
+
+  textSize(40);
+  fill(0, 0, 0);
+  text("Game 3", 767.5, 350);
+
+  fill(255, 255, 0);
+  rect(50, 625, 125, 70);
+
+  textSize(28);
+  fill(0, 0, 0);
+  text("Settings", 60, 668);
+
+  fill(255, 255, 0);
+  rect(905, 625, 125, 70);
+
+  textSize(28);
+  fill(0, 0, 0);
+  text("Records", 915, 665);
+}
