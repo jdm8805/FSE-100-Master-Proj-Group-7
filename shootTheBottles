@@ -1,0 +1,18 @@
+let img;
+
+function preload() {
+  img = loadImage("pictures/bar.png");
+}
+
+function setup() {
+  fullscreen();
+  createCanvas(1080, 720);
+}
+
+function draw() {
+  image(img, 0, 0);
+  noStroke();
+  fill(230, 145, 56, 100);
+  rect(0, 0, 1080, 100);
+  rect(0, 620, 1080, 100);
+}
