@@ -1,0 +1,246 @@
+let img1;
+let img2;
+let img3;
+let mainMenuImg;
+let rowdiesLight;
+let bangers;
+
+let currentScreen = 0;
+let mmButton, bButton, tButton, lButton;
+
+function preload() {
+  mainMenuImg = loadImage("pictures/car.jpg");
+  img1 = loadImage("pictures/bar.png");
+  img2 = loadImage("pictures/desert-forest.png");
+  img3 = loadImage("pictures/minecraft.webp");
+  rowdiesLight = loadFont("assets/Rowdies-Regular.ttf");
+  bangers = loadFont("assets/Bangers-Regular.ttf");
+}
+
+function setup() {
+  fullscreen();
+  createCanvas(1080, 720);
+  
+  
+  mmButton = createButton("Main Menu");
+  mmButton.position(25, 25);
+  mmButton.size(200, 50);
+  mmButton.mousePressed(switchToMM);
+  
+  bButton = createButton("Game 1");
+  bButton.position(135, 285);
+  bButton.size(200, 100);
+  bButton.mousePressed(bottles);
+  
+  tButton = createButton("Game 2");
+  tButton.position(438.75, 285);
+  tButton.size(200, 100);
+  tButton.mousePressed(tumbleweeds);
+  
+  lButton = createButton("Game 3");
+  lButton.position(742.5, 285);
+  lButton.size(200, 100);
+  lButton.mousePressed(labyrinth);
+  
+}
+
+function switchToMM(){
+  currentScreen = 0;
+  mmButton.hide();
+  bButton.show();
+  tButton.show();
+  lButton.show();
+  
+}
+
+function draw() {
+  switch(currentScreen){
+    case 0: 
+      mainMenu();
+      break;
+    case 1: 
+      bottles();
+      break;
+    case 2: 
+      tumbleweeds();
+      break;
+    case 3: 
+      labyrinth();
+      break;
+  }
+}
+
+// Sets up Typin' Tumbleweeds game
+function tumbleweeds() {
+  
+  currentScreen = 2;
+  
+  bButton.hide();
+  tButton.hide();
+  lButton.hide();
+  mmButton.show();
+  
+  // Background
+  image(img2, 0, 0);
+  
+  // Rectangles for borders
+  noStroke();
+  fill(230, 145, 56);
+  rect(0, 0, 1080, 100);
+  rect(0, 620, 1080, 100);
+  
+  /*
+  // Rectangle for button
+  stroke(0);
+  fill(255, 220, 0);
+  rect(25, 25, 200, 50, 5, 5, 5 ,5);
+  
+  // Text for button
+  noStroke();
+  fill(0);
+  textFont(rowdiesLight);
+  textSize(30);
+  text('Main Menu', 45, 60);
+  */
+} 
+
+// Sets up Shoot the Bottle game
+function bottles(){
+  
+  currentScreen = 1;
+  
+  bButton.hide();
+  tButton.hide();
+  lButton.hide();
+  mmButton.show();
+  
+  
+  // Background
+  image(img1, 0, 0);
+  
+  // Rectangles for borders
+  noStroke();
+  fill(230, 145, 56);
+  rect(0, 0, 1080, 100);
+  rect(0, 620, 1080, 100);
+  
+  /*
+  // Rectangle for button
+  stroke(0);
+  fill(255, 220, 0);
+  rect(25, 25, 200, 50, 5, 5, 5, 5);
+  
+  // Text for button
+  noStroke();
+  fill(0);
+  textFont(rowdiesLight);
+  textSize(30);
+  text("Main Menu", 45, 60);
+  */
+}
+
+// Sets up the Lasso Labyrinth game
+function labyrinth() {
+  
+  currentScreen = 3;
+  
+  bButton.hide();
+  tButton.hide();
+  lButton.hide();
+  mmButton.show();
+  
+  // Background image
+  image(img3, 0, 0);
+  
+  // Rectangles for borders
+  noStroke();
+  fill(230, 145, 56);
+  rect(0, 0, 1080, 100);
+  rect(0, 620, 1080, 100);
+  
+  // Main menu button
+  stroke(0);
+  fill(255, 220, 0);
+  rect(25, 25, 200, 50, 5, 5, 5, 5);
+
+  // Setting font for buttons
+  noStroke();
+  textFont(rowdiesLight);
+  textSize(30);
+  
+  // Text for main menu
+  fill(0, 0, 0);
+  text("Main Menu", 45, 60);
+  
+  textSize(28);
+  fill(0, 0, 0);
+  text("Timer", 940, 60);
+
+  stroke(0);
+  fill(255, 220, 0);
+  rect(25, 645, 135, 50, 5, 5);
+  
+  noStroke();
+  textSize(28);
+  fill(0, 0, 0);
+  text("Settings", 35, 680);
+}
+
+function mainMenu() {
+  mmButton.hide();
+
+  image(mainMenuImg, 0, 0);
+  
+  /*
+  
+  // Game 1 rectangle
+  fill(255, 220, 0);
+  rect(135, 285, 200, 100, 5, 5);
+
+  
+  textFont(rowdiesLight);
+  textSize(40);
+  fill(0, 0, 0);
+  text("Game 1", 160, 350);
+  
+  // Game 2 rectangle
+  fill(255, 220, 0);
+  rect(438.75, 285, 200, 100, 5, 5);
+
+  textSize(40);
+  fill(0, 0, 0);
+  text("Game 2", 463.75, 350);
+  
+  // Game 3 rectangle
+  fill(255, 220, 0);
+  rect(742.5, 285, 200, 100, 5, 5);
+
+  textSize(40);
+  fill(0, 0, 0);
+  text("Game 3", 767.5, 350);
+  
+  
+  fill(255, 220, 0);
+  rect(50, 625, 125, 70, 5, 5);
+
+  textSize(28);
+  fill(0, 0, 0);
+  text("Settings", 60, 668);
+
+  fill(255, 220, 0);
+  rect(905, 625, 125, 70, 5, 5);
+  
+  textSize(28);
+  fill(0, 0, 0);
+  text("Records", 915, 665);
+  */
+  
+  textFont(bangers);
+  textSize(130);
+  fill(255, 0, 0);
+  text("WILD WILD WEST", 200, 150);
+  fill(255, 0, 0, 100);
+  text("WILD WILD WEST", 200, 170);
+  fill(255, 0, 0, 50);
+  text("WILD WILD WEST", 200, 190);
+}
